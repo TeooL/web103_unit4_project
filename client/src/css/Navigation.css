@@ -1,7 +1,16 @@
 nav {
-    background-color: rgba(0, 0, 0, 0.8);
     width: 100vw;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 20px;
+    padding: 1rem 2rem;
+    background: rgba(4, 8, 18, 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+nav h1 {
+    font-size: 1.6rem;
+    letter-spacing: 0.02em;
+}
+
+nav ul {
+    align-items: center;
 }

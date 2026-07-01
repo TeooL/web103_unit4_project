@@ -1,31 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    color-scheme: dark;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background: #050913;
+    color: #f8fafc;
+}
+
 #root {
     --font-family: Rubik, Verdana, sans-serif;
-    --primary: rgb(115, 2, 12);
-    --primary-hover: black;
-    --color: white;
+    --primary: #f5c26b;
+    --primary-hover: #ffffff;
+    --color: #ffffff;
     --h1-color: var(--color);
     --h2-color: var(--color);
     --h3-color: var(--color);
-    --card-background-color: rgba(0, 0, 0, 0.8);
-    --card-sectionning-background-color: rgba(0, 0, 0, 0.8);
-    --form-element-active-border-color: var(--color);
-    --form-element-placeholder-color: gray;
+    --card-background-color: rgba(10, 14, 24, 0.84);
+    --card-sectionning-background-color: rgba(10, 14, 24, 0.84);
+    --form-element-active-border-color: #f5c26b;
+    --form-element-placeholder-color: rgba(255, 255, 255, 0.52);
+    min-height: 100vh;
 }
 
 #root h1 {
     font-size: 3rem;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #root h2 {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #root h3 {
     font-size: 1.5rem;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #root p {
@@ -37,7 +53,7 @@
     font-weight: 500;
     text-transform: uppercase;
     border: 2px solid transparent;
-    margin: 10px;
+    margin: 0;
     width: max-content;
 }
 
@@ -47,8 +63,8 @@
 
 #root main {
     display: flex;
+    flex-direction: column;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 #root article {
