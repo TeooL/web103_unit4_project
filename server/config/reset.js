@@ -13,7 +13,7 @@ const reset = async () => {
 			body_color TEXT NOT NULL,
 			wheel_style TEXT NOT NULL,
 			interior TEXT NOT NULL,
-			package TEXT NOT NULL,
+			"package" TEXT NOT NULL,
 			spoiler TEXT NOT NULL,
 			price INTEGER NOT NULL,
 			image_url TEXT NOT NULL,

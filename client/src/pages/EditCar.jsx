@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getCustomCar, updateCustomCar } from '../services/CustomCarsAPI.jsx'
+import CarPreview from '../components/CarPreview.jsx'
 import {
     bodyColorOptions,
     createPreviewStyle,
@@ -62,21 +63,7 @@ const EditCar = ({ title }) => {
             {car && (
                 <section className='content-grid'>
                     <article className='preview-panel'>
-                        <div className='car-preview' style={createPreviewStyle(car)}>
-                            <div className='car-roof' />
-                            <div className='car-body'>
-                                <div className='car-window' />
-                                <div className='car-headlight car-headlight-left' />
-                                <div className='car-headlight car-headlight-right' />
-                                <div className='car-wheel car-wheel-left' />
-                                <div className='car-wheel car-wheel-right' />
-                                <div className={`car-spoiler car-spoiler-${car.spoiler}`} />
-                            </div>
-                        </div>
-                        <div className='preview-meta'>
-                            <strong>{car.name}</strong>
-                            <span>${getCarPrice(car).toLocaleString()}</span>
-                        </div>
+                        <CarPreview style={createPreviewStyle(car)} spoiler={car.spoiler} />
                     </article>
 
                     <article className='form-panel'>

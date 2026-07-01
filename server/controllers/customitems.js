@@ -93,7 +93,7 @@ export const createCar = async (req, res) => {
 		const imageUrl = buildImageUrl(req.body)
 		const result = await pool.query(
 			`INSERT INTO customcars
-				(name, body_color, wheel_style, interior, package, spoiler, price, image_url)
+				(name, body_color, wheel_style, interior, "package", spoiler, price, image_url)
 			 VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
 			 RETURNING *`,
 			[
@@ -130,7 +130,7 @@ export const updateCar = async (req, res) => {
 				 body_color = $2,
 				 wheel_style = $3,
 				 interior = $4,
-				 package = $5,
+				 "package" = $5,
 				 spoiler = $6,
 				 price = $7,
 				 image_url = $8

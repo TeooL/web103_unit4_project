@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createCustomCar } from '../services/CustomCarsAPI.jsx'
+import CarPreview from '../components/CarPreview.jsx'
 import {
     bodyColorOptions,
     createPreviewStyle,
@@ -56,35 +57,12 @@ const CreateCar = ({ title }) => {
 
     return (
         <main className='page-shell'>
-            <section className='hero-copy'>
-                <p className='eyebrow'>Build a custom ride</p>
-                <h2>Customize a Bolt Bucket from the ground up.</h2>
-                <p>Pick the body, wheels, interior, package, and spoiler. The preview updates live and the price changes as you go.</p>
-                <div className='price-chip'>Starting at ${getCarPrice(car).toLocaleString()}</div>
-            </section>
-
             <section className='content-grid'>
                 <article className='preview-panel'>
-                    <div className='car-preview' style={createPreviewStyle(car)}>
-                        <div className='car-roof' />
-                        <div className='car-body'>
-                            <div className='car-window' />
-                            <div className='car-headlight car-headlight-left' />
-                            <div className='car-headlight car-headlight-right' />
-                            <div className='car-wheel car-wheel-left' />
-                            <div className='car-wheel car-wheel-right' />
-                            <div className={`car-spoiler car-spoiler-${car.spoiler}`} />
-                        </div>
-                    </div>
-                    <div className='preview-meta'>
-                        <strong>{car.name || 'Unnamed Bolt Bucket'}</strong>
-                        <span>{car.body_color} body, {car.wheel_style} wheels, {car.interior} interior</span>
-                        <span>${getCarPrice(car).toLocaleString()}</span>
-                    </div>
+                    <CarPreview style={createPreviewStyle(car)} spoiler={car.spoiler} />
                 </article>
 
                 <article className='form-panel'>
-                    <h3>Customize your build</h3>
                     {error && <p className='form-error'>{error}</p>}
                     <form onSubmit={onSubmit} className='custom-form'>
                         <label>

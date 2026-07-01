@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { deleteCustomCar, getAllCustomCars } from '../services/CustomCarsAPI.jsx'
+import CarPreview from '../components/CarPreview.jsx'
 import { createPreviewStyle, getCarPrice, getColorLabel, getOptionLabel, interiorOptions, packageOptions, spoilerOptions, wheelOptions } from '../utilities/carUtils.jsx'
 import '../App.css'
 
@@ -46,17 +47,7 @@ const ViewCars = ({ title }) => {
             <section className='cards-grid'>
                 {cars.map((car) => (
                     <article className='car-card' key={car.id}>
-                        <div className='car-preview small' style={createPreviewStyle(car)}>
-                            <div className='car-roof' />
-                            <div className='car-body'>
-                                <div className='car-window' />
-                                <div className='car-headlight car-headlight-left' />
-                                <div className='car-headlight car-headlight-right' />
-                                <div className='car-wheel car-wheel-left' />
-                                <div className='car-wheel car-wheel-right' />
-                                <div className={`car-spoiler car-spoiler-${car.spoiler}`} />
-                            </div>
-                        </div>
+                        <CarPreview style={createPreviewStyle(car)} size='small' spoiler={car.spoiler} />
                         <h3>{car.name}</h3>
                         <p>{getColorLabel(car.body_color)} body, {getOptionLabel(wheelOptions, car.wheel_style)} wheels</p>
                         <p>{getOptionLabel(interiorOptions, car.interior)} interior, {getOptionLabel(packageOptions, car.package)} package, {getOptionLabel(spoilerOptions, car.spoiler)} spoiler</p>

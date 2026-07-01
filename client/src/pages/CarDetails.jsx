@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { deleteCustomCar, getCustomCar } from '../services/CustomCarsAPI.jsx'
+import CarPreview from '../components/CarPreview.jsx'
 import { createPreviewStyle, getCarPrice, getColorLabel, getOptionLabel, interiorOptions, packageOptions, spoilerOptions, wheelOptions } from '../utilities/carUtils.jsx'
 import '../App.css'
 
@@ -40,17 +41,7 @@ const CarDetails = ({ title }) => {
             {car && (
                 <section className='detail-layout'>
                     <article className='preview-panel'>
-                        <div className='car-preview detail' style={createPreviewStyle(car)}>
-                            <div className='car-roof' />
-                            <div className='car-body'>
-                                <div className='car-window' />
-                                <div className='car-headlight car-headlight-left' />
-                                <div className='car-headlight car-headlight-right' />
-                                <div className='car-wheel car-wheel-left' />
-                                <div className='car-wheel car-wheel-right' />
-                                <div className={`car-spoiler car-spoiler-${car.spoiler}`} />
-                            </div>
-                        </div>
+                        <CarPreview style={createPreviewStyle(car)} size='detail' spoiler={car.spoiler} />
                     </article>
 
                     <article className='form-panel'>
